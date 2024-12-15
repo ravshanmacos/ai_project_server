@@ -1,0 +1,3 @@
+.env
+ai_project_server/
+chroma_persistent_storage/
