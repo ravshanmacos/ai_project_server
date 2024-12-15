@@ -14,7 +14,7 @@ First, clone the repository to your local machine:
 ```bash
 git clone <your-repo-url>
 cd <your-repo-folder>
-
+```bash
 ### 1. Create a Virtual Environment
 #### On Linux/Mac:
 ```bash
