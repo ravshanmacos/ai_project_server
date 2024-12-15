@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from chromadb import PersistentClient
 from chromadb.utils import embedding_functions
 import os
+from flask_cors import CORS
 from dotenv import load_dotenv
 from openai import OpenAI
 
@@ -25,6 +26,10 @@ client = OpenAI(api_key=openai_key)
 
 # Flask app
 app = Flask(__name__)
+
+# Enable CORS for all routes
+CORS(app)
+
 
 # Function to load text documents from a directory
 def load_documents_from_directory(directory_path):
@@ -127,7 +132,7 @@ def handle_query():
         # Parse the incoming JSON payload
         data = request.get_json()
         question = data.get('question', None)
-        n_results = data.get('n_results', 2)
+        n_results = data.get('n_results', 3)
 
         if not question:
             return jsonify({"error": "Question is required"}), 400
